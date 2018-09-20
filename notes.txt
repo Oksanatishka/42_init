@@ -1,0 +1,177 @@
+SYSTEM
+
+01
+
+The -l flag may be used to list all available interfaces on the system, with no other additional information. 
+--------
+A network interface is the point of interconnection between a computer and a private or public network. 
+
+Сетевой интерфейс — физическое или виртуальное устройство, предназначенное для передачи данных между 
+программами через компьютерную сеть.
+
+В компьютерных сетях сетевым интерфейсом называют:
+1. Точку соединения между компьютером пользователя и частной или общественной сетью;
+2. Сетевую карту компьютера[1];
+3. Точку соединения коммутируемой телефонной сети общественного пользования и телефона;
+4. Точку соединения двух сетей между собой.
+
+Некоторые возможные параметры сетевых интерфейсов: 
+сетевой адрес, аппаратный адрес, маска подсети, широковещательный адрес, метрика, MTU.
+
+Примеры сетевых интерфейсов:
+- Физические интерфейсы сетевых карт и телекоммуникационных устройств (коммутаторов, маршрутизаторов и так далее)
+- Петлевые интерфейсы для обмена данными между процессами на одном компьютере или управляемом сетевом устройстве. 
+Для них выделена специальная подсеть 127.0.0.0/8
+- Туннели — для инкапсуляции протокола того же или более низкого уровня в другой протокол
+- Интерфейсы виртуальных сетей (VLAN)
+
+Каждый интерфейс в сети может быть однозначно идентифицирован по его адресу. Разные сетевые протоколы используют 
+разные системы адресации, например MAC-адреса в Ethernet или IP-адреса в IP.
+
+You can use the following commands to see all network interfaces under Linux operating systems:
+1) ip command – It is used to show or manipulate routing, devices, policy routing and tunnels.
+2) netstat command – It is used to display network connections, routing tables, interface statistics, 
+masquerade connections, and multicast memberships.
+netstat -i //Show a Table Of All Network Interfaces
+3) ifconfig command – It is used to display or configure a network interface.
+/sbin/ifconfig -a
+
+Настройка сетевых интерфейсов в UNIX/Linux-системах традиционно выполняется с помощью команды ifconfig, 
+а в Linux ещё и при помощи команды ip.
+
+ifconfig interface options
+ipconfig //Просмотр информации обо всех интерфейсах
+ifconfig eth0 //Просмотр информации об интерфейсе eth0
+ifconfig eth0 10.0.0.1 //Назначить IP-адрес 10.0.0.1 первой Ethernet-карте
+ifconfig eth0 10.0.0.1 up // Если необходимо включить интерфейс
+ifconfig eth0 -arp // Запретить использование ARP на интерфейсе eth0
+ifconfig eth0 promisc //Перевести интерфейс в неразборчивый режим
+
+При вызове без параметров, программа выводит на экран информацию обо всех активных (up) интерфейсах. 
+Если указано имя интерфейса, но отсутствуют options, выводится информация только о нем одном.
+
+Создание сетевого интерфейса
+При настройке интерфейса обычно настраиваются следующие параметры:
+- IP-адрес должен быть указан обязательно, поскольку без него использование интерфейса неосуществимо;
+- Сетевая маска должна указываться в том случае, если она отличается от той, которая соответствует классу IP-адреса;
+- Широковещательный адрес указывается в том случае, если он отличается от широковещательного адреса, 
+вычисляемого на основе значений IP-адреса и сетевой маски.
+
+Эти параметры задаются одной командой, которая при этом, как правило, сразу и включает интерфейс.
+# ifconfig eth0 192.168.1.1 up
+# ifconfig eth1 10.0.0.1 netmask 255.255.255.0 up
+
+=========================================================================================================
+02
+
+Ethernet - локальная сеть.
+Ethernet is the protocol for your local area network (LAN).
+MAC addresses (or Physical addresses) are unique strings that identify Ethernet devices. 
+ARP (address resolution protocol) is the protocol that maps Ethernet MAC addresses to IP addresses.
+
+An Ethernet cable is the most common type of network cable used on a wired network whether at home 
+or in any other business establishment. This cable connects wired devices together to the local network 
+for file sharing and Internet access.
+
+Локальная сеть (англ. Ethernet [ˈiːθəˌnɛt] от англ. ether [ˈiːθə] — «эфир» и англ. network — «сеть, цепь») — 
+это семейство технологий пакетной передачи данных между устройствами для компьютерных и промышленных сетей.
+
+
+=========================================================================================================
+03
+
+MAC-адрес (от англ. Media Access Control — управление доступом к среде, также Hardware Address) — уникальный 
+идентификатор, присваиваемый каждой единице активного оборудования или некоторым их интерфейсам 
+в компьютерных сетях Ethernet.
+
+System Preferences --> Network --> Advanced --> Hardware --> MAC address.
+Example of a MAC address:  00:00:00:a1:2b:cc
+
+Linux/Unix: Finding the MAC address varies across the different Linux/Unix operating systems.  
+In many systems, the following command will return the MAC address:
+
+ifconfig -a
+
+If this does not work, please refer to the instruction manuals available from your particular operating system.
+=========================================================================================================
+04
+
+A default gateway is the node in a computer network using the Internet Protocol Suite that serves as the 
+forwarding host (router) to other networks when no other route specification matches the destination IP address 
+of a packet.
+
+Шлюз по умолчанию (англ. Default gateway) — в маршрутизируемых протоколах — сетевой шлюз, на который пакет 
+отправляется в том случае, если маршрут к сети назначения пакета не известен (не задан явным образом 
+в таблице маршрутизации хоста.
+
+A routing table, or routing information base (RIB), is a data table stored in a router 
+or a networked computer that lists the routes to particular network destinations, and in some cases, 
+metrics (distances) associated with those routes.
+
+Таблица маршрутизации — электронная таблица (файл) или база данных, хранящаяся на маршрутизаторе или 
+сетевом компьютере, которая описывает соответствие между адресами назначения и интерфейсами, через 
+которые следует отправить пакет данных до следующего маршрутизатора.
+
+Таблица маршрутизации обычно содержит:
+1. адрес сети или узла назначения, либо указание, что маршрут является маршрутом по умолчанию
+2. маску сети назначения (для IPv4-сетей маска /32 (255.255.255.255) позволяет указать единичный узел сети)
+3. шлюз, обозначающий адрес маршрутизатора в сети, на который необходимо отправить пакет, следующий 
+до указанного адреса назначения
+4. интерфейс, через который доступен шлюз (в зависимости от системы, это может быть порядковый номер, 
+GUID или символьное имя устройства; интерфейс может быть отличен от шлюза, если шлюз доступен 
+через дополнительное сетевое устройство, например, сетевую карту).
+5. метрику — числовой показатель, задающий предпочтительность маршрута. Чем меньше число, тем более 
+предпочтителен маршрут (интуитивно представляется как расстояние).
+
+=========================================================================================================
+05
+
+DNS (англ. Domain Name System — система доменных имён) — компьютерная распределённая система для получения 
+информации о доменах. Чаще всего используется для получения IP-адреса по имени хоста (компьютера или устройства), 
+получения информации о маршрутизации почты, обслуживающих узлах для протоколов в домене (SRV-запись).
+
+nslookup ("name server lookup") is a useful tool for finding out information about a named domain.
+man nslookup 
+nslookup is a program to query Internet domain name servers.
+
+nslookup slash16.org
+It will show you website's FTP IP address. This is IP address of the server where this website is hosted.
+
+=========================================================================================================
+06
+
+=========================================================================================================
+07
+
+=========================================================================================================
+08
+
+Web hosting is a service that allows organizations and individuals to post a website or web page onto 
+the Internet. A web host, or web hosting service provider, is a business that provides the technologies 
+and services needed for the website or webpage to be viewed in the Internet.
+=========================================================================================================
+09
+
+There are two kinds of IP addresses: local and external/public. 
+Your local IP address is what identifies your computer or device to the local network. (ipconfig)
+Your external/public IP address is what the rest of the internet sees. 
+
+=========================================================================================================
+10
+
+=========================================================================================================
+11
+
+=========================================================================================================
+12
+
+=========================================================================================================
+13
+
+=========================================================================================================
+14
+
+=========================================================================================================
+15
+
+=========================================================================================================
