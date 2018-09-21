@@ -2,6 +2,7 @@ SYSTEM
 
 01
 
+ifconfig -- configure network interface parameters
 The -l flag may be used to list all available interfaces on the system, with no other additional information. 
 --------
 A network interface is the point of interconnection between a computer and a private or public network. 
@@ -64,6 +65,11 @@ ifconfig eth0 promisc //Перевести интерфейс в неразбо�
 =========================================================================================================
 02
 
+ipconfig -- view and control IP configuration state
+getifaddr interface-name -- Prints to standard output the IP address for the first network service 
+associated with the given interface.
+---------------------------------
+
 Ethernet - локальная сеть.
 Ethernet is the protocol for your local area network (LAN).
 MAC addresses (or Physical addresses) are unique strings that identify Ethernet devices. 
@@ -93,8 +99,20 @@ In many systems, the following command will return the MAC address:
 ifconfig -a
 
 If this does not work, please refer to the instruction manuals available from your particular operating system.
+
 =========================================================================================================
 04
+
+netstat -- show network status
+-n    Show network addresses as numbers (normally netstat interprets addresses and attempts to display them symbolically). 
+-r    Show the routing tables.
+
+grep -- file pattern searcher
+-m num, --max-count=num
+             Stop reading the file after num matches.
+default -- shell built-in commands
+awk - pattern-directed scanning and processing language
+--------------------------------------------------------
 
 A default gateway is the node in a computer network using the Internet Protocol Suite that serves as the 
 forwarding host (router) to other networks when no other route specification matches the destination IP address 
@@ -126,6 +144,9 @@ GUID или символьное имя устройства; интерфейс
 =========================================================================================================
 05
 
+nslookup - query Internet name servers interactively
+------------------------
+
 DNS (англ. Domain Name System — система доменных имён) — компьютерная распределённая система для получения 
 информации о доменах. Чаще всего используется для получения IP-адреса по имени хоста (компьютера или устройства), 
 получения информации о маршрутизации почты, обслуживающих узлах для протоколов в домене (SRV-запись).
@@ -140,12 +161,19 @@ It will show you website's FTP IP address. This is IP address of the server wher
 =========================================================================================================
 06
 
+scutil -- Manage system configuration parameters
+The --dns option reports the current DNS configuration. 
 =========================================================================================================
 07
 
 =========================================================================================================
 08
 
+dig - DNS lookup utility
+dig (domain information groper) is a flexible tool for interrogating DNS name servers.
++[no]short -- Provide a terse answer. The default is to print the answer in a verbose form.
+whois -- Internet domain name and network number directory service
+----------------------------
 Web hosting is a service that allows organizations and individuals to post a website or web page onto 
 the Internet. A web host, or web hosting service provider, is a business that provides the technologies 
 and services needed for the website or webpage to be viewed in the Internet.
@@ -159,12 +187,15 @@ Your external/public IP address is what the rest of the internet sees.
 =========================================================================================================
 10
 
+traceroute -- print the route packets take to network host
+
 =========================================================================================================
 11
 
 =========================================================================================================
 12
 
+ping -- send ICMP ECHO_REQUEST packets to network hosts
 =========================================================================================================
 13
 
