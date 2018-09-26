@@ -1,1 +1,13 @@
-netstat -rn | grep -m1 default | awk '{print $2}'
+# Identifiy the default gateway in the routing table
+#
+# netstat -- show network status
+# -r    Show the routing tables.
+# -n    Show network addresses as numbers.
+# grep - searches any given input files, selecting lines that match one or more patterns.
+# -m num, --max-count=num - Stop reading the file after num matches.
+#
+# netstat -rn | grep -m2 default | awk '{print $2}'
+# awk - pattern-directed scanning and processing language
+# { print $2 }  - Print the second field.
+
+netstat -rn | grep -m1 default

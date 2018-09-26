@@ -1,1 +1,6 @@
+# Name the command that lists the partition tables of drives?
+#
+# fdisk -- DOS partition maintenance program
+# -l -- display partitions and exit
+
 fdisk -l

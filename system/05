@@ -1,1 +1,5 @@
-ps -ef |grep "sshd"
+# Name the command that determines the state of the SSH service.
+
+# su -- substitute user identity.
+
+service ssh status

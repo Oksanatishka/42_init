@@ -1,1 +1,7 @@
+# What command can you use to rename your system?
+#
+# hostname -- set or print name of current host system
+# SYNOPSIS: hostname [-fs] [name-of-host]
+# The super-user can set the hostname by supplying an argument.
+
 hostname newname

@@ -1,4 +1,7 @@
-Run ssh-keygen(1) on your machine, and just hit enter when asked for a password. 
-cat ~/.ssh/id_rsa
-or
+# What file contains the RSA keys of systems that are authorized to connect via SSH?
+#
+# Run ssh-keygen(then enter a path /root/.ssh/id_rsa) on your machine, hit enter when asked for a password. 
+# OR cat ~/.ssh/id_rsa
+
 cat ~/.ssh/authorized_keys
+ 

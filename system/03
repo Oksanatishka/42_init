@@ -1,4 +1,5 @@
-/etc/hostname newname
-/etc/init.d/hostname.sh start
+# What file has to be modified to make it permanent?
+ 
+/etc/hostname --> insert newname in the file
 
-to make the change active. The hostname saved in this file (/etc/hostname) will be preserved on system reboot (and will be set using the same script we used hostname.sh).
+# The hostname saved in this file (/etc/hostname) will be preserved on system reboot (and will be set using the same script we used hostname.sh).

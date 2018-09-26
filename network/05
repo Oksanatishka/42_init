@@ -1,1 +1,14 @@
+# Identify the IP address of the DNS that responds to the following url: slash16.org
+#
+# nslookup - query Internet name servers interactively
+#
+# nslookup slash16.org
+# grep says take the row with "Server"
+# awk '{print $2}' says show me the 2nd field.
+#
+# A DNS server is a computer server that contains a database of public IP addresses 
+# and their associated hostnames, and in most cases, serves to resolve, or translate, 
+# those common names to IP addresses as requested. DNS servers run special software 
+# and communicate with each other using special protocols.
+
 nslookup slash16.org | grep "Server" | awk '{print $2}'

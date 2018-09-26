@@ -1,3 +1,17 @@
+# Get the complete path of the file that contains the IP address of the DNS server
+# you’re using.
+#
+# Run this command to see the output below:
+# cat /etc/resolv.conf
+#
+# cat /var/run/resolv.conf
+# resolv.conf is the name of a computer file used in various operating systems  
+# to configure the system's Domain Name System (DNS) resolver.
+# The process of determining IP addresses from domain names is called resolving.
+resolv.conf is usually located in the /etc directory of the file system.
+# scutil -- Manage system configuration parameters
+# The --dns option reports the current DNS configuration.
+
 #
 # macOS Notice
 #

@@ -1,19 +1,35 @@
 #!/bin/bash
-# add the following script to your cron table (crontab)
-# using "0 0 * * * root /path/to/script >> /etc/crontab"
-# Also, in order to do this exercise, you need to install mailutils
-# using "apt-get install mailutils"
-# and dont forget to create txt files
+# Write a script which monitors the modifications made to the /etc/crontab file 
+# and sends an e-mail to root if the file is modified. Create a scheduled task to 
+# run this script everyday at midnight.
 
-echo "00 0 * * * /root/04" >> /etc/crontab
+# apt install git
+# Install mailutils using "apt-get install mailutils"
 
-sum1=$(cat /root/crontabsum)
-sum2=$(md5sum /etc/crontab | cut -d " " -f 1)
+# s2 hash sum before modified , m2 hash sum of etc/crontab
+# We need to add 0 0 * * * /path/to/script/04 to crontab (crontab -e)
+# To list task in crontab -> crontab -l
+# usr/bin/./mail - > my mail is here.
 
-if [ "sum1 != sum2" ]
-then
-	md5sum /root/tmp.txt | cut -d " " -f 1 > /root/crontabsum
-	echo "crontab changed" | mail -s "crontab changed" root@localhost > /root/mail.txt
+# md5sum - cd essage digest.
+# Synopsis: md5sum [option]... [file]...
+#
+# The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. 
+# Although MD5 was initially designed to be used as a cryptographic hash function, 
+# it has been found to suffer from extensive vulnerabilities. It can still be used as a checksum 
+# to verify data integrity, but only against unintentional corruption.
+
+# echo -- write arguments to the standard output
+# mail -- send and receive mail
+# -s subject -- Specify subject on command line.  
+
+# md5sum /etc/crontab --> 8f111d100ea459f68d333d63a8ef2205
+# cd /var/mail/ --> ls --> cat debian
+
+s1="$(md5sum /etc/crontab)"
+s2="8f111d100ea459f68d333d63a8ef2205"
+
+if [ "$s1" != "$s2" ] ; then
+	echo "/etc/crontab modified" | mail -s "/etc/crontab modified" root
+	exit 1
 fi
-
-

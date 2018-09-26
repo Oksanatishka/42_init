@@ -1,1 +1,14 @@
+# Get the list of the network interfaces of the machine without displaying
+# any detail for these interfaces. Only the list of names.
+#
+# lo is the loopback interface
+# en0 and en1 are your hardware interfaces (usually Ethernet and WiFi)
+# p2p0 is a point to point link (usually VPN)
+# stf0 is a "six to four" interface (IPv6 to IPv4)
+# gif01 is a software interface
+# bridge0 is a software bridge between other interfaces
+# utun0 is used for "Back to My Mac"
+# XHC20 is a USB network interface
+# awdl0 is Apple Wireless Direct Link (Bluetooth) to iOS devices
+
 ifconfig -l

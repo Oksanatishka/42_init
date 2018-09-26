@@ -1,2 +1,6 @@
 #!/bin/bash
+#Write a script which displays 42.
+
+# echo -- write arguments to the standard output
+
 echo 42

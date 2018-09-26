@@ -1,1 +1,6 @@
+# Figure out the PID of the SSHD service.
+
+# Process ID is nothing but a unique identification number that helps to identify a particular process in Linux. 
+# PID's are 16 bit number's that are sequentially assigned to different processes one after the other.
+
 cat /var/run/sshd.pid

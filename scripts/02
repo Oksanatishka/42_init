@@ -1,10 +1,34 @@
-echo '=========================UPDATE========================="
+#!/bin/bash
+# Write a script which updates all the package sources, then all the packages, and then
+# logs everything in a file named /var/log/update_script.log. Create a scheduled
+# task for this script, once per week at 4 AM.
 
-echo 'apt-get update >> /var/log/update_script.log >> ~/apt_update.sh'
-echo 'apt-get dist-upgrade >> var/log/update_script.log >> ~/apt_update.sh'
-echo '0 4 * * 1 sh ~apt_update.sh' >> etc/crontab
+# apt-get -- command-line tool for handling packages
+# update -- used to re-synchronize the package index files from their sources.
+# upgrade -- to install the newest versions of all packages currently installed on the system. 
+# -y -- automatic yes to prompts. Assume "yes" as answer to all prompts and run non-interactively.
 
-echo '=========================DONE=========================='
+# Cron is a system service that runs in the background, checks for scheduled tasks, and executes 
+# them if it finds any. The tasks — also called “cron jobs” — are defined in special configuration 
+# files (crontabs), which cron scans every minute.
+# The fastest way to check up on cron is to scan the system log with this command:
+# cat /var/log/syslog | grep -i cron
+# The -i option makes our query case-insensitive. It’s possible that cron will have its own log file 
+# somewhere in /var/log/, so look there if this command fails to produce useful results.
+# service cron status -- to check if the cron service is running.
 
+# Crontab 
+# https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/comment-page-1/
+# https://www.makeuseof.com/tag/linux-task-scheduling-crontab-explained/
+# The crontab utility is the program used to install, deinstall or list the tables used 
+# to drive the cron(8) daemon in Vixie Cron. 
 
+# crontab -l -- To view your crontab entries
+# crontab -e -- To edit a crontab entries
 
+#
+# Schedule the script at 4 am once per week:  add in crontab --> enter crontab -e
+# and 0 4 * * 1 /path/to/script
+#
+
+apt-get update && apt-get upgrade -y &> /var/log/update_script.log
