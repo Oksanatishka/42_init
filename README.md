@@ -1,5 +1,5 @@
 # init
-Introduction subject to System and Network Administration
+Introduction Subject to System and Network Administration
 
 Instructions How to Install Debian VM using Virtual Box:
 
